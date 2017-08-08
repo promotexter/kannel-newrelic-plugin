@@ -57,11 +57,11 @@ class NewrelicPlugin {
 
                         _.each(statReaders, statReader => {
                             let metrics = {};
-                            metrics['Component/' + this.config.prefix + statReader.name+"/storeSize[count/second]"] = statReader.getQueueLength();
-                            metrics['Component/' + this.config.prefix + statReader.name+"/onlineBinds[count/second]"] = statReader.getOnlineBinds();
+                            metrics['Component/' + this.config.prefix + statReader.name+"/queue[messages]"] = statReader.getQueueLength();
+                            metrics['Component/' + this.config.prefix + statReader.name+"/binds[online]"] = statReader.getOnlineBinds();
 
                             let currentSent = statReader.getSent();
-                            metrics['Component/' + this.config.prefix + statReader.name+"/sentMessages[count/second]"] = currentSent - (sentMessages[statReader.name] || 0 );
+                            metrics['Component/' + this.config.prefix + statReader.name+"/sent[messages/second]"] = currentSent - (sentMessages[statReader.name] || 0 );
 
                             sentMessages[statReader.name] = currentSent;
 
