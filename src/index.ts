@@ -48,7 +48,7 @@ class NewrelicPlugin {
 
                     Promise.map(statReaders, statReader => {
                         return statReader.loadStats();
-                    })
+                    }, {concurrency: 5})
                     .then(stats => {
                         let queueLength = 0;
                         let onlineBinds = 0;

@@ -16,7 +16,8 @@ class SMSCStat {
     loadStats() {
         return new Promise((resolve, reject) => {
             this.request({
-                url: 'http://' + this.host + ':' + this.port + '/status.xml?password=' + this.password
+                url: 'http://' + this.host + ':' + this.port + '/status.xml?password=' + this.password,
+                timeout: 3000
             }, (err, res, body) => {
                 if (err) {
                     resolve(false);
