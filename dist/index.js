@@ -15,7 +15,7 @@ class NewrelicPlugin {
     start() {
         let configReader = new ConfigReader_1.ConfigReader();
         let client = new NewrelicClient_1.NewrelicClient(this.config.guid, this.config.license);
-        configReader.getConfigs(this.config.basedir, [])
+        configReader.getConfigs(this.config.basedir, this.config.filters)
             .then(gws => {
             let statReaders = [];
             _.each(gws, gw => {
@@ -30,7 +30,7 @@ class NewrelicPlugin {
                 };
                 msg.agent = agent;
                 Promise.map(statReaders, statReader => {
-                    return statReader.loadXMLFile(__dirname + '/../src/test/test.xml');
+                    return statReader.loadStats();
                 })
                     .then(stats => {
                     let queueLength = 0;

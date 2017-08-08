@@ -11,6 +11,7 @@ export interface SMSCConfig {
     host?: string,
     admin_password?: string
 }
+
 export class ConfigReader {
 
     constructor() {

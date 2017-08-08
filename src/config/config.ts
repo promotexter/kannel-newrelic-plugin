@@ -3,7 +3,8 @@ var config = {
     basedir: __dirname + '/../../src/test/configs',
     run_interval: 5000,
     license: '',
-    prefix: 'gallium-'
+    prefix: 'gallium-',
+    filters: "*-bb.conf"
 }
 
 export = config;

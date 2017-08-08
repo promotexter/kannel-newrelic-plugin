@@ -24,7 +24,7 @@ class NewrelicPlugin {
         let client = new NewrelicClient(this.config.guid, this.config.license);
 
 
-        configReader.getConfigs(this.config.basedir, [])
+        configReader.getConfigs(this.config.basedir, this.config.filters)
             .then(gws => {
 
                 let statReaders: SMSCStat[] = [];
@@ -48,7 +48,7 @@ class NewrelicPlugin {
 
 
                     Promise.map(statReaders, statReader => {
-                        return statReader.loadXMLFile(__dirname + '/../src/test/test.xml');
+                        return statReader.loadStats();
                     })
                     .then(stats => {
                         let queueLength = 0;
