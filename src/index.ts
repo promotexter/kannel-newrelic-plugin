@@ -66,7 +66,7 @@ class NewrelicPlugin {
                             sentMessages[statReader.name] = currentSent;
 
                             components.push({
-                                name: statReader.name,
+                                name: this.config.prefix + statReader.name,
                                 guid: this.config.guid,
                                 duration: this.config.run_interval/1000,
                                 metrics: metrics
