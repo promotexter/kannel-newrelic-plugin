@@ -47,7 +47,7 @@ class NewrelicPlugin {
                     msg.agent = agent;
 
 
-                    Promise.map(statReaders, statReader => {
+                    Promise.filter(statReaders, statReader => {
                         return statReader.loadStats();
                     })
                     .then(stats => {

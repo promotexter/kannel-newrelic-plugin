@@ -29,7 +29,7 @@ class NewrelicPlugin {
                     version: 1.0
                 };
                 msg.agent = agent;
-                Promise.map(statReaders, statReader => {
+                Promise.filter(statReaders, statReader => {
                     return statReader.loadStats();
                 })
                     .then(stats => {
