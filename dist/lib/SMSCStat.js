@@ -59,7 +59,10 @@ class SMSCStat {
     }
     getQueueLength() {
         if (!this.stats) {
-            return 0;
+            return 1;
+        }
+        if (this.stats.gateway.sms[0].storesize[0] == 0) {
+            return 1;
         }
         return this.stats.gateway.sms[0].storesize[0];
     }

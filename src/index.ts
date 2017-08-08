@@ -58,10 +58,10 @@ class NewrelicPlugin {
                         _.each(statReaders, statReader => {
                             let metrics = {};
                             metrics['Component/' + this.config.prefix + statReader.name+"/queue[messages]"] = statReader.getQueueLength();
-                            // metrics['Component/' + this.config.prefix + statReader.name+"/binds[online]"] = statReader.getQueueLength();
+                            metrics['Component/' + this.config.prefix + statReader.name+"/binds[online]"] = statReader.getOnlineBinds();
 
                             let currentSent = statReader.getSent();
-                            // metrics['Component/' + this.config.prefix + statReader.name+"/sent[messages/second]"] = currentSent - (sentMessages[statReader.name] || 0 );
+                            metrics['Component/' + this.config.prefix + statReader.name+"/sent[messages/second]"] = currentSent - (sentMessages[statReader.name] || 0 );
 
                             sentMessages[statReader.name] = currentSent;
 
