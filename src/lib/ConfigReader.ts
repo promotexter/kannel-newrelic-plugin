@@ -39,7 +39,7 @@ export class ConfigReader {
                 };
 
                 c.admin_port = parseInt(conf.match(/admin-port.*?(\d+)/)[1]);
-                    c.name = conf.match(/smsbox-id\s*=\s*"*(.*?)"/)[1];
+                c.name = conf.match(/smsbox-id\s*=\s*"*(.*?)"/)[1];
                 c.admin_password = conf.match(/admin-password\s*=\s*"*(.*?)"/)[1];
                 return c;
             })

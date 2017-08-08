@@ -59,7 +59,7 @@ describe('SMSCStat', function () {
             smscStat.loadXMLFile(__dirname + '/../../src/test/test.xml')
                 .then(() => {
                 let sent = smscStat.getQueueLength();
-                assert.equal(sent, 0);
+                assert.equal(sent, 40);
                 done();
             })
                 .catch(err => {

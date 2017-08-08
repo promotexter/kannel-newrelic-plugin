@@ -26,7 +26,7 @@ export class SMSCStat {
                 url: 'http://' + this.host + ':' + this.port + '/status.xml?password=' + this.password
             }, (err, res, body) => {
                 if(err) {
-                    reject(err);
+                    resolve(false);
                 } else {
                     this.loadXML(body);
                     resolve(true);
@@ -40,6 +40,7 @@ export class SMSCStat {
         return new Promise<boolean>((resolve, reject) => {
             xml2js.parseString(data.toString(), (err, result) => {
                 if(err) {
+                    this.stats = null;
                     reject(err);
                 } else {
                     this.stats  = result;
@@ -63,14 +64,24 @@ export class SMSCStat {
     }
 
     getQueueLength(): number  {
+        if(!this.stats) {
+           return 0;
+        }
         return this.stats.gateway.sms[0].storesize[0];
+
     }
 
     getSent(): number {
+        if(!this.stats) {
+            return 0;
+        }
         return this.stats.gateway.sms[0].sent[0].total[0];
     }
 
     getOnlineBinds(): number {
+        if(!this.stats) {
+            return 0;
+        }
         let smscs = this.stats.gateway.smscs[0].smsc;
         let online = 0;
         _.each(smscs, (smsc, key) => {
