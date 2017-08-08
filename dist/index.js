@@ -38,6 +38,7 @@ class NewrelicPlugin {
                     let components = [];
                     _.each(statReaders, statReader => {
                         let metrics = {};
+                        metrics['Component/' + this.config.prefix + statReader.name + "/queue_tmp[messages]"] = statReader.getQueueLength();
                         metrics['Component/' + this.config.prefix + statReader.name + "/queue[messages]"] = statReader.getQueueLength();
                         metrics['Component/' + this.config.prefix + statReader.name + "/binds[online]"] = statReader.getOnlineBinds();
                         let currentSent = statReader.getSent();
