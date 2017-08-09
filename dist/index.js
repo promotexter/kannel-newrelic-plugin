@@ -19,6 +19,7 @@ class NewrelicPlugin {
             .then(gws => {
             let statReaders = [];
             _.each(gws, gw => {
+                console.log('initializing stat loader for ', gw.name);
                 statReaders.push(new SMSCStat_1.SMSCStat(gw.name, gw.host, gw.admin_port, gw.admin_password));
             });
             let sentMessages = {};
