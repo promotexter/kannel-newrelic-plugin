@@ -11,17 +11,6 @@ class NewrelicClient {
     send(msg) {
         return new Promise((resolve, reject) => {
             var msgString = JSON.stringify(msg);
-            let params = {
-                url: this.url,
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-License-Key': this.license,
-                },
-                body: msgString
-            };
-            console.log(params);
             this.request({
                 url: this.url,
                 method: "POST",
@@ -37,6 +26,7 @@ class NewrelicClient {
                         reject(new Error('Response from newrelic: ' + body));
                     }
                     else {
+                        console.log('Newrelic Response: ', body);
                         resolve();
                     }
                 }

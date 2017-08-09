@@ -29,8 +29,13 @@ export class SMSCStat {
                 if(err) {
                     resolve(false);
                 } else {
-                    this.loadXML(body);
-                    resolve(true);
+                    this.loadXML(body)
+                    .then(() => {
+                        resolve();
+                    })
+                    .catch(err => {
+                        resolve(false);
+                    })
                 }
             })
         });

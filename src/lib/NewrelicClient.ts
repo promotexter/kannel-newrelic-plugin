@@ -16,18 +16,6 @@ export class NewrelicClient {
         return new Promise<boolean>((resolve, reject) => {
             var msgString = JSON.stringify(msg);
 
-            let params = {
-                url: this.url,
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-License-Key': this.license,
-                },
-                body: msgString
-            };
-
-            console.log(params);
 
             this.request({
                 url: this.url,
@@ -43,6 +31,7 @@ export class NewrelicClient {
                     if(httpResponse.statusCode >= 300) {
                         reject(new Error('Response from newrelic: ' + body));
                     } else {
+                        console.log('Newrelic Response: ', body);
                         resolve();
                     }
                 } else {
