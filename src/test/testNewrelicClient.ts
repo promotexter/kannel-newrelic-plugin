@@ -27,7 +27,11 @@ describe('NewrelicClient', function() {
             };
 
             client.send({x: 'x', y: 'y'});
+
+
             let args = client.request.getCall(0).args[0];
+
+
             assert.equal(args.url, 'https://platform-api.newrelic.com/platform/v1/metrics');
             assert.equal(args.headers['X-License-Key'], 'xxxvvv');
             assert.equal(args.body, JSON.stringify({x: 'x', y: 'y'}));

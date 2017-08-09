@@ -14,6 +14,7 @@ class SMSCStat {
         this.request = request;
     }
     loadStats() {
+        this.stats = null;
         return new Promise((resolve, reject) => {
             this.request({
                 url: 'http://' + this.host + ':' + this.port + '/status.xml?password=' + this.password,
@@ -35,10 +36,10 @@ class SMSCStat {
         });
     }
     loadXML(data) {
+        this.stats = null;
         return new Promise((resolve, reject) => {
             xml2js.parseString(data.toString(), (err, result) => {
                 if (err) {
-                    this.stats = null;
                     reject(err);
                 }
                 else {
@@ -49,6 +50,7 @@ class SMSCStat {
         });
     }
     loadXMLFile(filename) {
+        this.stats = null;
         return new Promise((resolve, reject) => {
             fs.readFile(filename, (err, data) => {
                 if (err) {
