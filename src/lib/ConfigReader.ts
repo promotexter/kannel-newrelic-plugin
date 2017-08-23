@@ -3,6 +3,7 @@ import * as Promise from 'bluebird';
 import {basename} from "path";
 import * as _ from 'lodash';
 import * as read from 'recursive-readdir';
+import * as path from 'path';
 
 
 export interface SMSCConfig {
@@ -38,8 +39,9 @@ export class ConfigReader {
                     admin_port: 0
                 };
 
+
                 c.admin_port = parseInt(conf.match(/admin-port.*?(\d+)/)[1]);
-                c.name = conf.match(/smsbox-id\s*=\s*"*(.*?)"/)[1];
+                c.name = path.dirname(file).split(path.sep).pop();
                 c.admin_password = conf.match(/admin-password\s*=\s*"*(.*?)"/)[1];
                 return c;
             })

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const Promise = require("bluebird");
 const read = require("recursive-readdir");
+const path = require("path");
 class ConfigReader {
     constructor() {
     }
@@ -27,7 +28,7 @@ class ConfigReader {
                 admin_port: 0
             };
             c.admin_port = parseInt(conf.match(/admin-port.*?(\d+)/)[1]);
-            c.name = conf.match(/smsbox-id\s*=\s*"*(.*?)"/)[1];
+            c.name = path.dirname(file).split(path.sep).pop();
             c.admin_password = conf.match(/admin-password\s*=\s*"*(.*?)"/)[1];
             return c;
         });
