@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<gateway>
+    <version>Kannel bearerbox version `svn-r5106'.
+        Build `Oct  7 2014 11:09:03', compiler `4.8.2'.
+        System Linux, release 3.13.0-36-generic, version #63-Ubuntu SMP Wed Sep 3 21:30:07 UTC 2014, machine x86_64.
+        Hostname ip-10-0-1-194.ec2.internal, IP 10.0.1.194.
+        Libxml version 2.9.1.
+        Compiled with MySQL 5.5.38, using MySQL 5.5.38.
+        Using native malloc.
+    </version>
+    <status>running, uptime 0d 15h 6m 8s</status>
+    <wdp>
+        <received><total>0</total><queued>0</queued></received>
+        <sent><total>0</total><queued>0</queued></sent>
+    </wdp>
+    <sms>
+        <received><total>0</total><queued>0</queued></received>
+        <sent><total>240716</total><queued>0</queued></sent>
+        <storesize>15</storesize>
+        <inbound>1.27,0.00,0.00</inbound>
+        <outbound>9.47,9.39,4.43</outbound>
+    </sms>
+    <dlr>
+        <received><total>480513</total></received>
+        <sent><total>0</total></sent>
+        <inbound>18.73,19.37,8.84</inbound>
+        <outbound>1.32,0.00,0.00</outbound>
+        <queued>2941821</queued>
+        <storage>mysql</storage>
+    </dlr>
+    <boxes>
+        <box>
+            <type>smsbox</type>
+            <id>tata-direct2</id>
+            <IP>127.0.0.1</IP>
+            <queue>0</queue>
+            <status>on-line 0d 15h 5m 8s</status>
+            <ssl>not installed</ssl>
+        </box></boxes>
+    <smscs><count>8</count>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>57</failed>
+            <queued>0</queued>
+            <sms>
+                <received>0</received>
+                <sent>29846</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.11,1.24,0.55</outbound>
+            </sms>
+            <dlr>
+                <received>59722</received>
+                <sent>0</sent>
+                <inbound>2.10,2.40,1.10</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>38</failed>
+            <queued>1</queued>
+            <sms>
+                <received>0</received>
+                <sent>30220</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.24,1.28,0.56</outbound>
+            </sms>
+            <dlr>
+                <received>60639</received>
+                <sent>0</sent>
+                <inbound>2.46,2.42,1.12</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>20</failed>
+            <queued>0</queued>
+            <sms>
+                <received>0</received>
+                <sent>30177</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.22,1.19,0.56</outbound>
+            </sms>
+            <dlr>
+                <received>60263</received>
+                <sent>0</sent>
+                <inbound>2.27,2.47,1.11</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>34</failed>
+            <queued>0</queued>
+            <sms>
+                <received>0</received>
+                <sent>30077</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.34,1.19,0.55</outbound>
+            </sms>
+            <dlr>
+                <received>59707</received>
+                <sent>0</sent>
+                <inbound>2.47,2.33,1.10</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>40</failed>
+            <queued>0</queued>
+            <sms>
+                <received>0</received>
+                <sent>30076</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.18,1.12,0.55</outbound>
+            </sms>
+            <dlr>
+                <received>59971</received>
+                <sent>0</sent>
+                <inbound>2.41,2.14,1.10</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>38</failed>
+            <queued>1</queued>
+            <sms>
+                <received>0</received>
+                <sent>30190</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.25,1.23,0.56</outbound>
+            </sms>
+            <dlr>
+                <received>60096</received>
+                <sent>0</sent>
+                <inbound>2.35,2.29,1.11</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54367s</status>
+            <failed>36</failed>
+            <queued>0</queued>
+            <sms>
+                <received>0</received>
+                <sent>29905</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.28,1.23,0.55</outbound>
+            </sms>
+            <dlr>
+                <received>60016</received>
+                <sent>0</sent>
+                <inbound>2.57,2.57,1.10</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+        <smsc>
+            <name>SMPP:66.198.83.36:2775/2775:m_pro_dir:</name>
+            <admin-id>tata-direct2-smpp</admin-id>
+            <id>tata-direct2-smpp</id>
+            <status>online 54368s</status>
+            <failed>34</failed>
+            <queued>0</queued>
+            <sms>
+                <received>0</received>
+                <sent>30225</sent>
+                <inbound>0.00,0.00,0.00</inbound>
+                <outbound>1.14,1.25,0.56</outbound>
+            </sms>
+            <dlr>
+                <received>60099</received>
+                <sent>0</sent>
+                <inbound>2.42,2.52,1.11</inbound>
+                <outbound>0.00,0.00,0.00</outbound>
+            </dlr>
+        </smsc>
+    </smscs>
+</gateway>

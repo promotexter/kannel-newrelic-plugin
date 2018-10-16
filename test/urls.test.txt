@@ -1,0 +1,2 @@
+tata,http://google.com
+direct,http://google.com

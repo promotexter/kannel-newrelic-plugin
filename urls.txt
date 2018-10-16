@@ -1,0 +1,6 @@
+tata-direct-2,http://10.0.1.194:35321/status.xml?password=ptSupp23$
+tata-direct,http://10.0.1.194:35309/status.xml?password=ptSupp23$
+mbird,http://10.0.1.194:35329/status.xml?password=ptSupp23$
+amd,http://10.0.1.194:35327/status.xml?password=ptSupp23$
+sstreet2,http://10.0.1.194:35327/status.xml?password=ptSupp23$
+m360,http://10.0.1.194:35317/status.xml?password=ptSupp23$
