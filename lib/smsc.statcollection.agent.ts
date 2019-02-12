@@ -1,5 +1,4 @@
 import {StatCollector} from "./stat.collector";
-
 let fs = require('fs');
 import * as Bluebird from 'bluebird';
 Bluebird.promisifyAll(fs);
@@ -18,10 +17,12 @@ export class SmscStatcollectionAgent {
     smscs: SMSC[];
     statter: SMSCStatCollector;
     reporter: StatCollector;
+    prefix: string;
 
     constructor() {
         this.statter = new SMSCStatCollector();
         this.reporter = StatCollector.getInstance();
+        this.prefix = process.env.METRIC_PREFIX;
     }
 
     init() {
@@ -32,9 +33,9 @@ export class SmscStatcollectionAgent {
 
     start() {
         setInterval(() => {
-            _.each(this.smscs, async (smsc) => {
-                await this.poll(smsc);
-            });
+	     Bluebird.each(this.smscs, async (smsc) => {
+                 await this.poll(smsc);
+             });
         }, parseInt(process.env.POLL_INTERVAL) || 10000)
     }
 
@@ -42,7 +43,7 @@ export class SmscStatcollectionAgent {
 
         let stats = await this.statter.getStats(smsc.adminURL);
 
-        this.reporter.add('gallium.kannel.sms', {
+        this.reporter.add(this.prefix + 'kannel.sms', {
             queued: stats.queueLength,
             sent: stats.sent,
             outboundRate: stats.smsOutboundRate,
@@ -52,7 +53,7 @@ export class SmscStatcollectionAgent {
             route: smsc.name
         });
 
-        this.reporter.add('gallium.kannel.dlr', {
+        this.reporter.add(this.prefix + 'kannel.dlr', {
             outboundRate: stats.dlrOutboundRate,
             inboundRate: stats.dlrInboundRate
         },
@@ -60,7 +61,7 @@ export class SmscStatcollectionAgent {
             route: smsc.name
         });
 
-        this.reporter.add('gallium.kannel.binds', {
+        this.reporter.add(this.prefix + 'kannel.binds', {
             bindsOnline: stats.bindsOnline,
         },
         {
@@ -73,16 +74,16 @@ export class SmscStatcollectionAgent {
         let smsc_file = process.env.SMSCS;
 
         let parts = (await fs.readFileAsync(smsc_file)).toString().split("\n");
-
         let smscs = [];
+
         _.each(parts, (line) => {
-
             let split = line.split(',');
-
-            smscs.push({
-                name: split[0],
-                adminURL: split[1]
-            });
+            if(split[0] && split[1]) {
+                smscs.push({
+                    name: split[0],
+                    adminURL: split[1]
+                });
+            }
         });
 
         return smscs;
